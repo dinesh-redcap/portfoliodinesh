@@ -31,6 +31,10 @@
                 <li><a href="#skills-manage" class="sidebar-link" data-section="skills-manage">
                     <i class="fas fa-code"></i> <span>Skills</span>
                 </a></li>
+                <!-- NEW: Experience Management Link -->
+                <li><a href="#experience-manage" class="sidebar-link" data-section="experience-manage">
+                    <i class="fas fa-star"></i> <span>Experience</span>
+                </a></li>
                 <li><a href="#messages" class="sidebar-link" data-section="messages">
                     <i class="fas fa-envelope"></i> <span>Messages</span>
                 </a></li>
@@ -77,6 +81,14 @@
                         <div class="stat-info">
                             <h3 id="skillCount">0</h3>
                             <p>Skills</p>
+                        </div>
+                    </div>
+                    <!-- NEW: Experience Count -->
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-star"></i></div>
+                        <div class="stat-info">
+                            <h3 id="experienceCount">0</h3>
+                            <p>Experiences</p>
                         </div>
                     </div>
                 </div>
@@ -219,6 +231,58 @@
                     </form>
                 </div>
                 <div class="skills-list" id="adminSkillsList"></div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- EXPERIENCE MANAGEMENT SECTION - NEW -->
+            <!-- ============================================ -->
+            <section id="experience-manage" class="admin-section">
+                <div class="section-header">
+                    <h2>Experience Management</h2>
+                    <button class="btn btn-primary" onclick="showAddExperienceForm()">
+                        <i class="fas fa-plus"></i> Add Experience
+                    </button>
+                </div>
+                <div id="experienceFormContainer" class="form-container" style="display: none;">
+                    <h3 id="experienceFormTitle">Add New Experience</h3>
+                    <form id="experienceForm">
+                        <input type="hidden" id="experienceId">
+                        <div class="form-group">
+                            <label>Images (16:9 ratio, multiple allowed) *</label>
+                            <input type="file" id="experienceImages" accept="image/*" multiple>
+                            <div class="image-preview-grid" id="experienceImagePreview"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Title / Role *</label>
+                            <input type="text" id="experienceTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Company / Institution *</label>
+                            <input type="text" id="experienceCompany" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration *</label>
+                            <input type="text" id="experienceDuration" required placeholder="e.g., Jan 2022 - Present">
+                        </div>
+                        <div class="form-group">
+                            <label>Description *</label>
+                            <textarea id="experienceDesc" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Certificate File</label>
+                            <input type="file" id="experienceCert" accept=".pdf,.jpg,.jpeg,.png">
+                        </div>
+                        <div class="form-group">
+                            <label>Certificate Link</label>
+                            <input type="url" id="experienceCertLink" placeholder="Or paste certificate link">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Experience</button>
+                            <button type="button" class="btn btn-secondary" onclick="hideExperienceForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="experience-list" id="adminExperienceList"></div>
             </section>
 
             <!-- Messages Section -->
